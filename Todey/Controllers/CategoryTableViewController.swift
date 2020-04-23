@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
 class CategoryTableViewController: SwipeTableViewController {
     
@@ -19,6 +20,7 @@ class CategoryTableViewController: SwipeTableViewController {
         super.viewDidLoad()
         
         loadItems()
+        tableView.separatorStyle = .none
     }
     
     //MARK: - TableView DataSource Methods
@@ -31,6 +33,7 @@ class CategoryTableViewController: SwipeTableViewController {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
         cell.textLabel?.text = categories?[indexPath.row].name ?? "No Categories added yet"
+        cell.backgroundColor = UIColor.randomFlat()
         
         return cell
     }
